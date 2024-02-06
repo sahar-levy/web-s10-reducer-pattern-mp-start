@@ -1,4 +1,4 @@
-import React from 'react' // 👈 you'll need the reducer hook
+import React, { useReducer } from 'react' // 👈 you'll need the reducer hook
 import Quotes from './Quotes'
 import QuoteForm from './QuoteForm'
 
@@ -10,29 +10,33 @@ const SET_HIGHLIGHTED_QUOTE = 'SET_HIGHLIGHTED_QUOTE'     // 👈 highlights a q
 const TOGGLE_VISIBILITY = 'TOGGLE_VISIBILITY'             // 👈 toggles whether to show all or only non-apocryphal
 
 let id = 1
-const getNextId = () => id++ // 👈 this is a helper to create new quotes
-const quotes = [
-  {
-    id: getNextId(),
-    quoteText: "Don't cry because it's over, smile because it happened.",
-    authorName: "Dr. Seuss",
-    apocryphal: false,
-  },
-  {
-    id: getNextId(),
-    quoteText: "So many books, so little time.",
-    authorName: "Frank Zappa",
-    apocryphal: false,
-  },
-  {
-    id: getNextId(),
-    quoteText: "Be yourself; everyone else is already taken.",
-    authorName: "Oscar Wilde",
-    apocryphal: false,
-  },
-]
+const getNextId = () => id++ // 👈 this is a helper to create new quotes 
 
 // 👇 create your initial state object here
+const initialState = {
+  displayAllQuotes: true,
+  highlightedQuote: null,
+  quotes: [
+    {
+      id: getNextId(),
+      quoteText: "Don't cry because it's over, smile because it happened.",
+      authorName: "Dr. Seuss",
+      apocryphal: false,
+    },
+    {
+      id: getNextId(),
+      quoteText: "So many books, so little time.",
+      authorName: "Frank Zappa",
+      apocryphal: false,
+    },
+    {
+      id: getNextId(),
+      quoteText: "Be yourself; everyone else is already taken.",
+      authorName: "Oscar Wilde",
+      apocryphal: false,
+    },
+  ]
+}
 
 const reducer = (state, action) => {
   // 👇 implement your reducer here using the action types above
