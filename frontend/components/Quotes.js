@@ -4,6 +4,7 @@ import React from 'react'
 export default function Quotes({
   quotes,
   // 👇 although you can remove the default parameters of the Quotes component after you're done
+  // these are all props that go in the JSX in the Quotes component in App.js
   highlightedQuote = 1,
   displayAllQuotes = true,
   deleteQuote = () => { },
